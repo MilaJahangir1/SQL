@@ -1,0 +1,27 @@
+--create a clothing store database
+create table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
+
+insert into store values
+(1,'shirt', 30,40,20,10,20),
+(2,'pants', 40,100,35,5,30),
+(3,'jacket', 100,300,70,30,75),
+(4,'shoes', 150,150,100,50,125),
+(5,'socks', 15,30,10,5,7),
+(6,'leggings', 120,35,95,25,115),
+(7,'yogapants',50,45,45,5,35),
+(8,'coats', 300,100,200,100,200),
+(9,'shorts',45,20,35,10,30),
+(10,'earrings',120,50,90,30,95),
+(11,'slippers',60,15,40,20,30),
+(12,'flipflops',15,10,10,5,14),
+(13,'hoodies',155,20,130,25,115),
+(14,'necklace',130,20,100,30,95),
+(15,'hats', 60,10,30,30,30)
+;
+
+--display the database ordered by price
+select name, price from store order by price
+
+
+--list the top 5 items that bring in the highest profit
+select name, price, profit from store order by profit desc limit 5;
