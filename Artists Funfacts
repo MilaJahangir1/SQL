@@ -1,0 +1,33 @@
+create table Artists
+(ID INTEGER PRIMARY KEY,
+name TEXT,
+age INTEGER,
+home_state TEXT,
+zodiac_sign TEXT);
+insert into Artists values (1,"Mac Demarco",33,"NA","Taurus");
+insert into artists values (2,"Victoria Legrand",42,"NA","Gemini");
+insert into artists values (3,"Doja Cat",27,"CA","Libra");
+insert into artists values(4,"Tyler the Creator",32,"CA","Pisces");
+insert into artists values (5,"Lana Del Rey",37,"NY","Cancer");
+insert into artists values (6,"Kendrick Lamar",35,"CA","Gemini");
+insert into artists values (7,"Thom Yorke",54,"NA","Libra");
+insert into artists values (8,"Julian Casablancas",44,"NY","Virgo");
+
+create table Genres
+(ID INTEGER PRIMARY KEY,
+artist_ID INTEGER,
+name TEXT,
+relationship_status TEXT);
+insert into Genres values (1,1,"Alternative","Married");
+insert into Genres values (2,2,"Alternative","None");
+insert into Genres values (3,3,"Rap","None");
+insert into Genres values (4,4,"Rap","None");
+insert into Genres values (5,5,"Alt Pop","Engaged");
+insert into Genres values (6,6,"Rap","Engaged");
+insert into Genres values (7,7,"Alternative","Married");
+insert into Genres values (8,8,"Alternative","Dating");
+
+select artists.name,genres.name,genres.relationship_status 
+from artists
+join genres
+on artists.id=genres.artist_ID;
