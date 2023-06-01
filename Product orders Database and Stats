@@ -1,0 +1,38 @@
+--How many orders were placed in January? Remember to filter out the blank and incorrect order IDs like we did in the "dealing with messy data" section of the previous lesson!
+SELECT count(*) FROM BIT_DB.JanSales
+WHERE length(orderID) = 6
+AND orderID <> 'Order ID';
+
+--How many of those orders were for an iPhone?
+SELECT count(*) FROM BIT_DB.JanSales
+WHERE Product='iPhone'
+AND Product <>'';
+
+--Select the customer account numbers for all the orders that were placed in February.
+SELECT acctnum
+FROM BIT_DB.customers AS Cust
+JOIN BIT_DB.FebSales AS Feb
+ON Cust.order_id=Feb.orderID;
+
+--Which product was the cheapest one sold in January, and what was the price?
+SELECT Product,min(Price)
+FROM BIT_DB.JanSales;
+
+--What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
+SELECT Product, (sum(quantity)*price) AS total_revenue
+FROM BIT_DB.JanSales
+Where Product IS NOT 'Product' AND Product <>''
+GROUP BY Product;
+
+--Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT Product, sum(quantity) as quantity, (sum(quantity)*price) AS total_revenue
+FROM BIT_DB.FebSales
+WHERE location='548 Lincoln St, Seattle, WA 98101'
+GROUP BY Product;
+
+--How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+SELECT count(Cust.acctnum) as Customers,avg(quantity*price) as Average
+FROM BIT_DB.FebSales as Feb
+JOIN BIT_DB.customers as Cust
+ON Cust.order_id=Feb.OrderID
+WHERE Feb.quantity>2 AND length(orderid)=6;
