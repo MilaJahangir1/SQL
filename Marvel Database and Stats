@@ -40,18 +40,26 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-select name, gender from marvels;
+SELECT name, gender 
+FROM marvels;
 
-select name as USA_males from marvels where hometown='USA' and gender='Male';
+SELECT name AS USA_males
+FROM marvels
+WHERE hometown='USA' AND gender='Male';
 
-select round(avg(weight_kg)) as average_weight from marvels;
+SELECT ROUND(AVG(weight_kg)) AS Average_weight
+FROM marvels;
 
-select count (*) as number_of_characters,
-case
-when weight_kg< 170 then "under_weight"
-when weight_kg> 170 then "over_weight"
-else "average"
-end as "weight_class" from marvels
-group by "weight_class";
+SELECT COUNT (*) AS Number_of_characters,
+CASE   
+WHEN weight_kg< 170 THEN "under_weight"
+WHEN weight_kg> 170 THEN "over_weight"
+ELSE "average"
+END AS "weight_class" 
+FROM marvels
+GROUP BY "weight_class";
 
-select name as poor_intelligence,strength from marvels group by name having intelligence<3;
+SELECT name AS Poor_intelligence,strength
+FROM marvels
+GROUP BY name 
+HAVING intelligence<3;
