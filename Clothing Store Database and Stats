@@ -1,7 +1,7 @@
---create a clothing store database
-create table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
+--Create a clothing store database.
+CREATE table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
 
-insert into store values
+INSERT INTO store values
 (1,'shirt', 30,40,20,10,20),
 (2,'pants', 40,100,35,5,30),
 (3,'jacket', 100,300,70,30,75),
@@ -19,9 +19,14 @@ insert into store values
 (15,'hats', 60,10,30,30,30)
 ;
 
---display the database ordered by price
-select name, price from store order by price
+--Display the database ordered by price.
+SELECT name, price 
+FROM store
+ORDER BY price;
 
 
---list the top 5 items that bring in the highest profit
-select name, price, profit from store order by profit desc limit 5;
+--List the top 5 items that bring in the highest profit.
+SELECT name, price, profit 
+FROM store 
+ORDER BY profit DESC 
+limit 5;
