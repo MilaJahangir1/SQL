@@ -1,0 +1,73 @@
+--murder place-SQL City
+--murder day-01/15/2018
+ 
+ --SELECT *
+ --FROM crime_scene_report
+ --WHERE city="SQL City" AND date=20180115;
+ 
+--Security footage shows that there were 2 witnesses. 
+--The first witness lives at the last house on "Northwestern Dr". 
+--The second witness, named Annabel, lives somewhere on "Franklin Ave".
+
+--SELECT *
+--FROM interview 
+--JOIN person 
+--ON person.id=interview.person_id
+--WHERE name="Morty Schapiro" OR name="Annabel Miller"
+--GROUP BY name;
+
+--I saw the murder happen, and I recognized the killer from my gym when I was working out 
+--last week on January the 9th.
+--I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. 
+--The membership number on the bag started with "48Z". Only gold members have those bags. 
+--The man got into a car with a plate that included "H42W".
+
+--SELECT *
+--FROM get_fit_now_member
+--WHERE membership_status='gold' AND ID LIKE '%48z%'
+--GROUP BY name;
+
+--id,person_ID,name,membership start,check in, check out
+--48z55,67318, Jeremy Bowers,20160101,1600,1730
+--48z7a,28819, Joe Germuska, 20160305,1530,1700
+
+--SELECT *
+--FROM get_fit_now_check_in
+--WHERE check_in_date=20180109 and membership_id LIKE'%48z%';
+
+--SELECT *
+--FROM Drivers_license dri
+--JOIN person per
+--ON dri.ID=per.license_id
+--WHERE name="Jeremy Bowers" OR name="Joe Germuska"
+--GROUP BY name ;
+
+--SELECT transcript
+--FROM interview int
+--JOIN person per
+--ON int.person_id=per.id
+--WHERE name="Jeremy Bowers";
+
+--I was hired by a woman with a lot of money. I don't know her name but I know 
+--she's around 5'5" (65") or 5'7" (67"). She has red hair and she drives a Tesla 
+--Model S. I know that she attended the SQL Symphony Concert 3 times in December 
+--2017.
+
+--SELECT per.id, name, car_model, height, per.ssn
+--FROM drivers_license dri
+--JOIN person per
+--ON dri.ID=per.license_id
+--WHERE gender="female" AND car_make='Tesla' AND hair_color="red"
+--GROUP BY name;
+
+--78881, Red Korb
+--MP=987756388
+
+--SELECT inc.ssn,annual_income
+--FROM income inc
+--JOIN person per
+--ON inc.ssn=per.ssn
+--WHERE inc.ssn=987756388 or inc.ssn=961388910 or inc.ssn=337169072
+--GROUP BY inc.ssn;
+
+
