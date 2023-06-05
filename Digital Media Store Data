@@ -1,0 +1,75 @@
+-- How many Customers are from each US state?
+SELECT state, COUNT(FirstName) AS Customers
+FROM chinook.customers
+WHERE country="USA"
+GROUP BY state;
+
+-- What country is each company mentioned in the data from?
+SELECT company, country
+FROM chinook.customers
+WHERE company IS NOT NULL;
+
+--Which Sales Support Agent made the most money across all years?
+SELECT emp.FirstName, emp.LastName
+FROM chinook.employees emp
+
+JOIN chinook.customers cust
+ON cust.SupportRepId = emp.EmployeeId
+
+JOIN chinook.invoices inv
+ON inv.CustomerId = cust.CustomerId
+
+WHERE title="Sales Support Agent"
+GROUP BY emp.FirstName
+ORDER BY SUM(inv.total) DESC
+LIMIT 1;
+ 
+--How many albums does each artist have in the store?
+SELECT art.name,COUNT(title) AS "Total Albums"
+FROM chinook.albums alb
+JOIN chinook.artists art
+ON alb.artistid=art.artistid
+GROUP BY art.name;
+
+--What was the total sales for 2012?
+SELECT SUM(total) AS "Total Sales"
+FROM chinook.Invoices
+WHERE InvoiceDate LIKE "%2012%";
+
+--List all employees from Lethbridge along with their titles and their phone numbers? 
+SELECT FirstName, LastName, Title, Phone
+FROM chinook.employees
+WHERE City="Lethbridge";
+
+-- List all rock songs and their artist.
+SELECT tra.name AS Song ,art.name AS Artist
+FROM chinook.genres gen
+
+JOIN chinook.tracks tra
+ON gen.genreid=tra.genreid
+
+JOIN chinook.albums alb
+ON tra.albumid=alb.albumid
+
+JOIN chinook.artists art
+ON alb.artistid= art.artistid
+
+WHERE gen.name= "Rock"
+GROUP BY tra.name;
+
+-- Find all customers from Germany.
+SELECT FirstName,LastName
+FROM chinook.customers
+WHERE Country="Germany"
+GROUP BY FirstName;
+
+--How many media types are there?
+SELECT COUNT(Name) AS "Total Media Types"
+FROM chinook.media_types;
+
+--List all customers with "H" in their postal code and the country they are from.
+SELECT FirstName, LastName, Country
+FROM chinook.customers
+WHERE PostalCode LIKE "%H%"
+GROUP BY FirstName;
+
