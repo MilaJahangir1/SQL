@@ -1,3 +1,5 @@
+
+
 CREATE table Artists(ID INTEGER PRIMARY KEY,name TEXT,age INTEGER,home_state TEXT,zodiac_sign TEXT);
 INSERT into Artists values (1,"Mac Demarco",33,"NA","Taurus");
 INSERT into artists values (2,"Victoria Legrand",42,"NA","Gemini");
