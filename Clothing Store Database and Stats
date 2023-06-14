@@ -1,4 +1,4 @@
---In
+--In 
 
 CREATE table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
 
@@ -30,4 +30,4 @@ ORDER BY price;
 SELECT name, price, profit 
 FROM store 
 ORDER BY profit DESC 
-limit 5;
+LIMIT 5;
