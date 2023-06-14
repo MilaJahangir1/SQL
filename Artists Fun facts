@@ -1,3 +1,4 @@
+--In this SQL code I've created 2 table with information about different artists.
 
 
 CREATE table Artists(ID INTEGER PRIMARY KEY,name TEXT,age INTEGER,home_state TEXT,zodiac_sign TEXT);
