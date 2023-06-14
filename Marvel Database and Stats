@@ -1,5 +1,6 @@
 --For this project, I downloaded data about Marvel characters and I created a table to insert data into. Then I performed analytics on the data using SQL. 
 
+--Creating a table.
 CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
     name TEXT,
     popularity INTEGER,
@@ -42,16 +43,22 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
+--Then I explored the data using the following SQL. 
+
+--List all marvel characters wih their gender.
 SELECT name, gender 
 FROM marvels;
 
+--List all male characters from the U.S.
 SELECT name AS USA_males
 FROM marvels
 WHERE hometown='USA' AND gender='Male';
 
+--Find the average weight of all characters.
 SELECT ROUND(AVG(weight_kg)) AS Average_weight
 FROM marvels;
 
+--Catergorize the characters based on weight.
 SELECT COUNT (*) AS Number_of_characters,
 CASE   
 WHEN weight_kg< 170 THEN "under_weight"
@@ -61,6 +68,7 @@ END AS "weight_class"
 FROM marvels
 GROUP BY "weight_class";
 
+--Name characters with an intelligence rating less than 3 and what their strength rating is.
 SELECT name AS Poor_intelligence,strength
 FROM marvels
 GROUP BY name 
