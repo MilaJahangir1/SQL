@@ -1,4 +1,4 @@
---In 
+--For this project, I've created a clothing store table and  
 
 CREATE table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
 
