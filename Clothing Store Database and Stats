@@ -1,4 +1,5 @@
---Create a clothing store database.
+--In
+
 CREATE table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
 
 INSERT INTO store values
