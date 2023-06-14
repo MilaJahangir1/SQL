@@ -21,6 +21,7 @@ INSERT into Genres values (6,6,"Rap","Engaged");
 INSERT into Genres values (7,7,"Alternative","Married");
 INSERT into Genres values (8,8,"Alternative","Dating");
 
+--Then I pulled each artists' genre and their relationship status.
 SELECT artists.name,genres.name,genres.relationship_status 
 FROM artists
 JOIN genres
