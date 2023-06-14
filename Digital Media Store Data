@@ -1,4 +1,4 @@
---In this SQL, I'm querying a database to about a digital media store
+--For this project, I downloaded data about a digital media store. Then I performed analytics on the data using SQL. 
 
 -- How many Customers are from each US state?
 SELECT state, COUNT(FirstName) AS Customers
