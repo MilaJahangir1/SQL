@@ -1,4 +1,4 @@
---For this project, I've created a clothing store table and  
+--For this project, I've created a clothing store table and derived functional information. 
 
 CREATE table store (id integer primary key, name text, price integer,quantity integer,profit integer,productioncost integer,saleprice integer);
 
@@ -23,7 +23,7 @@ INSERT INTO store values
 --Display the database ordered by price.
 SELECT name, price 
 FROM store
-ORDER BY price;
+ORDER BY price desc;
 
 
 --List the top 5 items that bring in the highest profit.
