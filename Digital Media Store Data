@@ -1,3 +1,5 @@
+--In this SQL, I'm querying a database to about a digital media store
+
 -- How many Customers are from each US state?
 SELECT state, COUNT(FirstName) AS Customers
 FROM chinook.customers
