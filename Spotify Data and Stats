@@ -49,7 +49,7 @@ GROUP BY artist_name
 HAVING COUNT(track_name)>=2;
 
 --How many artists have a tempo above 125?
-SELECT COUNT(artist_name) as "Total Artists"
+SELECT COUNT(artist_name) AS "Total Artists"
 FROM Spotifydata
 WHERE Tempo>125;
 
@@ -57,3 +57,12 @@ WHERE Tempo>125;
 SELECT COUNT(track_name)AS "Total Songs"
 FROM Spotifydata
 WHERE track_name LIKE '%you%';
+
+-- What is the average popularity for the artists? For every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+WITH popularity_average_CTE AS
+(SELECT s.artist_name, avg(s.popularity) AS average_popularity
+FROM SpotifyData s 
+GROUP BY s.artist_name)
+SELECT  artist_name, average_popularity, 'Top Star' AS tag
+FROM popularity_average_CTE
+WHERE average_popularity>=90;
